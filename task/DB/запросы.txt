@@ -1,0 +1,38 @@
+INSERT INTO groups(name)
+VALUES
+('Group A'),
+('Group B');
+
+INSERT INTO teams(name, country)
+VALUES
+('Team1', 'Country1'),
+('Team2', 'Country2'),
+('Team3', 'Country3'),
+('Team4', 'Country4'),
+('Team5', 'Country5'),
+('Team6', 'Country6'),
+('Team7', 'Country7');
+
+INSERT INTO groupmembers(group_id, team_id)
+VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(2, 1),
+(2, 2),
+(2, 3),
+(2, 4),
+(2, 5),
+(2, 6),
+(2, 7);
+
+SELECT groups.name, teams.name, teams.country  FROM teams
+INNER JOIN groupmembers on team_id = teams.id
+INNER JOIN groups on group_id = groups.id
+WHERE groups.name = "Group A";
+
+SELECT groups.name, teams.name, teams.country  FROM teams
+INNER JOIN groupmembers on team_id = teams.id
+INNER JOIN groups on group_id = groups.id
+WHERE groups.name = "Group B";
